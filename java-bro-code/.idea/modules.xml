@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Arithmetic/Arithmetic.iml" filepath="$PROJECT_DIR$/Arithmetic/Arithmetic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IfStatements/IfStatements.iml" filepath="$PROJECT_DIR$/IfStatements/IfStatements.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MadLibs/MadLibs.iml" filepath="$PROJECT_DIR$/MadLibs/MadLibs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Math/Math.iml" filepath="$PROJECT_DIR$/Math/Math.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Matha/Matha.iml" filepath="$PROJECT_DIR$/Matha/Matha.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Print/Print.iml" filepath="$PROJECT_DIR$/Print/Print.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RandomNumbers/RandomNumbers.iml" filepath="$PROJECT_DIR$/RandomNumbers/RandomNumbers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShoppingCart/ShoppingCart.iml" filepath="$PROJECT_DIR$/ShoppingCart/ShoppingCart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserInput/UserInput.iml" filepath="$PROJECT_DIR$/UserInput/UserInput.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Variables/Variables.iml" filepath="$PROJECT_DIR$/Variables/Variables.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java-bro-code.iml" filepath="$PROJECT_DIR$/.idea/java-bro-code.iml" />
+    </modules>
+  </component>
+</project>
