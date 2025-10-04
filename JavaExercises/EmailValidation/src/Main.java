@@ -41,8 +41,8 @@ public class Main {
                 System.out.println("- username: " + username);
                 System.out.println("- domain: " + domain);
             }
-
         }
+
         else{
             System.out.println("invalid email: email must contain @");
         }
