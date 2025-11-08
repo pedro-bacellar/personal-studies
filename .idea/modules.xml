@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/Arithmetic/Arithmetic.iml" filepath="$PROJECT_DIR$/JavaBroCode/Arithmetic/Arithmetic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/Calculator/Calculator.iml" filepath="$PROJECT_DIR$/JavaBroCode/Calculator/Calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/CompoundInterest/CompoundInterest.iml" filepath="$PROJECT_DIR$/JavaBroCode/CompoundInterest/CompoundInterest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaExercises/EmailValidation/EmailValidation.iml" filepath="$PROJECT_DIR$/JavaExercises/EmailValidation/EmailValidation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/EnchancedSwitches/EnchancedSwitches.iml" filepath="$PROJECT_DIR$/JavaBroCode/EnchancedSwitches/EnchancedSwitches.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/IfStatements/IfStatements.iml" filepath="$PROJECT_DIR$/JavaBroCode/IfStatements/IfStatements.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/LogicalOperators/LogicalOperators.iml" filepath="$PROJECT_DIR$/JavaBroCode/LogicalOperators/LogicalOperators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/MadLibs/MadLibs.iml" filepath="$PROJECT_DIR$/JavaBroCode/MadLibs/MadLibs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/Math/Math.iml" filepath="$PROJECT_DIR$/JavaBroCode/Math/Math.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/NestedIfStatements/NestedIfStatements.iml" filepath="$PROJECT_DIR$/JavaBroCode/NestedIfStatements/NestedIfStatements.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/NumberGuessingGame/NumberGuessingGame.iml" filepath="$PROJECT_DIR$/JavaBroCode/NumberGuessingGame/NumberGuessingGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/Print/Print.iml" filepath="$PROJECT_DIR$/JavaBroCode/Print/Print.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/Printf/Printf.iml" filepath="$PROJECT_DIR$/JavaBroCode/Printf/Printf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaExercises/QuadraticEquation/QuadraticEquation.iml" filepath="$PROJECT_DIR$/JavaExercises/QuadraticEquation/QuadraticEquation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/RandomNumbers/RandomNumbers.iml" filepath="$PROJECT_DIR$/JavaBroCode/RandomNumbers/RandomNumbers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/ShoppingCart/ShoppingCart.iml" filepath="$PROJECT_DIR$/JavaBroCode/ShoppingCart/ShoppingCart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/StringMethods/StringMethods.iml" filepath="$PROJECT_DIR$/JavaBroCode/StringMethods/StringMethods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/Substrings/Substrings.iml" filepath="$PROJECT_DIR$/JavaBroCode/Substrings/Substrings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/TemperatureConvert/TemperatureConvert.iml" filepath="$PROJECT_DIR$/JavaBroCode/TemperatureConvert/TemperatureConvert.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/TernaryOperator/TernaryOperator.iml" filepath="$PROJECT_DIR$/JavaBroCode/TernaryOperator/TernaryOperator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/UserInput/UserInput.iml" filepath="$PROJECT_DIR$/JavaBroCode/UserInput/UserInput.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/Variables/Variables.iml" filepath="$PROJECT_DIR$/JavaBroCode/Variables/Variables.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/WeightConversion/WeightConversion.iml" filepath="$PROJECT_DIR$/JavaBroCode/WeightConversion/WeightConversion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBroCode/WhileLoops/WhileLoops.iml" filepath="$PROJECT_DIR$/JavaBroCode/WhileLoops/WhileLoops.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/personal-studies.iml" filepath="$PROJECT_DIR$/.idea/personal-studies.iml" />
+    </modules>
+  </component>
+</project>
