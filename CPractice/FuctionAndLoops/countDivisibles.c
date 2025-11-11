@@ -17,7 +17,7 @@ void countDivisibles(int a){
 
             threeCount++;
         }
-        else if(i % 5 == 0){
+        else if(a % 5 == 0){
 
             fiveCount++;
         }
