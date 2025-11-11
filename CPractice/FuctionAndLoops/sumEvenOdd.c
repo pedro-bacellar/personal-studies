@@ -10,17 +10,13 @@ void sumEvenOdd(int a){
         even += i;
         
     }
-
     printf("%d\n", even);
 
     for(i = 1; i <= a; i += 2){
         odd += i;
         
     }
-    
     printf("%d\n", odd);
-
-
 
 }
 
