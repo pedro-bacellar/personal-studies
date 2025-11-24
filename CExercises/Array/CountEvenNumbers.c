@@ -13,6 +13,6 @@ int main(){
 
         }
     }
-    printf("%d", evenCounter);
+    printf("Even numbers: %d", evenCounter);
 
 }
