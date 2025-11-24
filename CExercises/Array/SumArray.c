@@ -12,6 +12,4 @@ int main(){
     }
     printf("Sum = %d", sum);
 
-
-
 }
