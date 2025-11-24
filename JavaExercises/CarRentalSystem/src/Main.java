@@ -30,7 +30,6 @@ public class Main {
 
         //          ----- CAR SELECTION -----
 
-
         int chosenCar = 0;
 
         do {
