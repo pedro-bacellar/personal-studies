@@ -1,22 +1,21 @@
-# Personal Studies
+# 🚀 Personal Studies
 
 This repository contains my personal programming studies, focused on building a solid foundation in software development.
 
-## Purpose
+## 🎯 Purpose
 - Practice programming logic and problem-solving
-- Improve understanding of core computer science concepts
+- Strengthen core computer science concepts
 - Apply theory through hands-on coding exercises
 
-## Topics Covered
+## 📚 Topics Covered
 - Java fundamentals
 - Control flow (conditionals and loops)
 - Basic data structures
-- Object-oriented programming concepts
+- Object-oriented programming (OOP)
 
-## Technologies
+## 🛠 Technologies
 - Java
-- C
 - Git & GitHub
 
-## Status
+## 🔄 Status
 This repository is continuously updated as I progress in my studies.
