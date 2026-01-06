@@ -2,13 +2,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-        String roomsName[] = {"Simple", "Double", "Suite"};
-        int roomsPrice[] = {100, 180, 300};
-        int roomsCapacity[] = {2, 4, 2};
+        String[] roomsName = {"Simple", "Double", "Suite"};
+        double[] roomsPrice = {100, 180, 300};
+        int[] roomsCapacity = {2, 4, 2};
 
         String fullName = getFullName(scanner);
 
@@ -20,7 +20,16 @@ public class Main {
 
         int chosenRoom = getChosenRoom(scanner, guestsNumber, age);
 
+        double discount = getBenefitDiscount();
+
+        double total = calculateTotal(roomsPrice[chosenRoom], nights, discount);
+
+        System.out.println(total);
+
+        boolean continueLoop = true;
+
         do {
+            System.out.println(total);
             int option = actionMenu(scanner);
 
             switch (option) {
@@ -32,12 +41,37 @@ public class Main {
                     System.out.println("Exiting System.");
                     return;
                 }
+                case 6 -> {
+                    System.out.println("Finalizing reservation...");
+                    continueLoop = false;
+                }
             }
-        }while (true);
+        } while (continueLoop);
+
+        if (isInstallment(scanner)) {
+            int installments;
+
+            do {
+                System.out.println("Installment options: ");
+                System.out.println();
+                System.out.println("2x");
+                System.out.println("3x");
+                System.out.println("6x");
+                System.out.println("12x");
+                System.out.println();
+                System.out.print("How many installments would you like to pay in? (only numbers): ");
+                installments = scanner.nextInt();
+                scanner.nextLine();
+                if (installments == 2 || installments == 3 || installments == 6 || installments == 12) {
+                    total *= getCompound(installments);
+                    break;
+                }
+                System.out.println("Invalid option.");
+            } while (true);
+            System.out.println(total);
+        }
 
     }
-
-    //          ----- SIGN UP
 
     static String getFullName(Scanner scanner) {
         String fullName = "";
@@ -74,7 +108,6 @@ public class Main {
         } while (true);
     }
 
-    //          ----- NIGHTS OF STAY
 
     static int getNights(Scanner scanner) {
 
@@ -93,7 +126,6 @@ public class Main {
         } while (true);
     }
 
-    //          ----- NUMBER OF GUESTS
 
     static int getGuestsNumber(Scanner scanner) {
         int guestsNumber = 2;
@@ -108,42 +140,42 @@ public class Main {
                 continue;
             }
             return guestsNumber;
-        }while(true);
+        } while (true);
     }
 
-    //          ----- BENEFIT DRAW
 
-    static double benefit(int nights, double roomPrice){
+    static double getBenefitDiscount() {
 
         Random random = new Random();
         int roll = random.nextInt(1, 101);
-        double total = nights * roomPrice;
+        double discount = 1;
 
-        if(roll <= 10){
+        if (roll <= 10) {
             System.out.println("Room upgrade.");
-        }
-        else if(roll <= 30){
+        } else if (roll <= 30) {
             System.out.println("15% discount.");
-            total *= 0.85;
-        }
-        else if(roll <= 60){
+            discount = 0.85;
+        } else if (roll <= 60) {
             System.out.println("Free breakfast");
-        }
-        else{
+        } else {
             System.out.println("Nothing.");
         }
-
-        return total;
+        return discount;
 
     }
 
-    //          ----- ROOM CATALOG
+
+    static double calculateTotal(double roomsPrice, int nights, double discount) {
+        double extraFee = nights > 7 ? 150.0 : 0.0;
+        return ((nights * roomsPrice) * discount) + extraFee;
+    }
+
 
     static int getChosenRoom(Scanner scanner, int guestsNumber, int age) {
 
         int roomsAvailable = 3;
         String roomsName[] = {"Simple", "Double", "Suite"};
-        int roomsPrice[] = {100, 180, 300};
+        double roomsPrice[] = {100, 180, 300};
         int roomsCapacity[] = {2, 4, 2};
         int chosenRoom = 0;
 
@@ -192,9 +224,8 @@ public class Main {
         } while (true);
     }
 
-    //          ----- ACTION MENU
 
-    static int actionMenu(Scanner scanner){
+    static int actionMenu(Scanner scanner) {
         int option = 0;
 
         do {
@@ -212,19 +243,16 @@ public class Main {
             option = scanner.nextInt();
             scanner.nextLine();
 
-            if(option >= 1 && option <= 6){
+            if (option >= 1 && option <= 6) {
                 return option;
             }
             System.out.println("Invalid option.");
 
-        }while(true);
+        } while (true);
     }
 
-    //          ----- VALUE CALCULATION
 
-    //          ----- SUMMARY
-
-    static void showPartialSummary(String fullName, int age, String room, int nights, int guests){
+    static void showPartialSummary(String fullName, int age, String room, int nights, int guests) {
         System.out.println("===== PARTIAL SUMMARY =====");
         System.out.println();
         System.out.println("Name: " + fullName);
@@ -235,4 +263,26 @@ public class Main {
         System.out.println();
     }
 
+
+    static double getCompound(int installments) {
+
+        return Math.pow(1.02, installments);
+
+    }
+
+
+    static boolean isInstallment(Scanner scanner) {
+        String option = "";
+
+        do {
+            System.out.print("Do you want to pay in installments? (yes or no): ");
+            option = scanner.nextLine().trim().toLowerCase();
+
+            if (option.equals("yes") || option.equals("y")) return true;
+            if (option.equals("no") || option.equals("n")) return false;
+
+            System.out.println("Invalid option.");
+            System.out.println();
+        } while (true);
+    }
 }
