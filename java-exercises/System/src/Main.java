@@ -63,7 +63,7 @@ public class Main {
                 System.out.println();
 
                 do{
-                    
+
                 installments = 2;
                 partialTotal = total * getCompoundFactor(installments);
                 System.out.printf("2x - Total: %.2f", partialTotal);
