@@ -1,6 +1,15 @@
 public class Question {
 
-    String q1 = "What is Java?";
-    String[] options = {"A) An operating system", "B) A programming language", "C) A database", "D) A text editor"};
-    int answer = 1;
+    String question;
+    String[] options;
+    int answer;
+
+    Question(String question, String[] options, int answerIndex){
+
+        this.question = question;
+        this.options = options;
+        this.answer = answerIndex;
+
+    }
+
 }
