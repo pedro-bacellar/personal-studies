@@ -1,7 +1,7 @@
 public class Enrollment {
 
-    Student student;
-    Course course;
+    private Student student;
+    private Course course;
 
     Enrollment(Student student, Course course){
         this.student = student;

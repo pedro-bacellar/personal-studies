@@ -8,7 +8,7 @@ public class EnrollmentManager {
         enrollments.add(enrollment);
     }
 
-    void showEnrollments(){
+    void listEnrollments(){
         for(Enrollment enrollment : enrollments){
             System.out.println(enrollment);
             System.out.println();
