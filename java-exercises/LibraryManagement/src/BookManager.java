@@ -21,4 +21,14 @@ public class BookManager {
         }
     }
 
+    Book getBooksByIndex(int choiceBook){
+        if(choiceBook <= 0){
+            System.out.println("Invalid option.");
+        }
+        else {
+            choiceBook--;
+            return books.get(choiceBook);
+        }
+        return null;
+    }
 }

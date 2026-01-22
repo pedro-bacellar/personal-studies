@@ -18,4 +18,15 @@ public class MemberManager {
             System.out.println(i + " - " + member);
         }
     }
+
+    Member getMemberByIndex(int choiceMember){
+        if(choiceMember <= 0){
+            System.out.println("Invalid option.");
+        }
+        else {
+            choiceMember--;
+            return members.get(choiceMember);
+        }
+        return null;
+    }
 }

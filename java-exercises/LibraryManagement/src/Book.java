@@ -15,6 +15,5 @@ public class Book {
     @Override
     public String toString(){
         return "Title: " + this.title + " | Author: " + this.author + " | Available: " + available;
-
     }
 }

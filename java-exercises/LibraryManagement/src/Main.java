@@ -6,6 +6,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         MemberManager memberManager = new MemberManager();
         BookManager bookManager = new BookManager();
+        LoanManager loanManager = new LoanManager();
+        Loan loan;
         Member member;
 
         boolean isRunning = true;
@@ -32,9 +34,20 @@ public class Main {
                     System.out.println();
                 }
                 case 4 ->{
+                    System.out.print("Enter the book: ");
+                    int bookIndex = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter the member: ");
+                    int memberIndex = scanner.nextInt();
+                    scanner.nextLine();
+
+                    loanManager.borrowBook(bookManager.getBooksByIndex(bookIndex), memberManager.getMemberByIndex(memberIndex));
+                    System.out.println();
 
                 }
                 case 5 ->{
+                    loanManager.listLoans();
 
                 }
                 case 6 ->{
