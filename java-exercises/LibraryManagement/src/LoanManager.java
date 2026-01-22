@@ -7,9 +7,17 @@ public class LoanManager {
     LoanManager(){
     }
 
-    void borrowBook(Book bookChoice, Member memberChoice){
-
-        loans.add(new Loan(bookChoice, memberChoice));
+    void borrowBook(Book choiceBook, Member choiceMember){
+        if(choiceBook = null || choiceMember = null){
+            System.out.println("Invalid");
+        }
+        if(choiceBook.getAvailable()){
+            loans.add(new Loan(choiceBook, choiceMember));
+            choiceBook.setAvailable(false);
+        }
+        else {
+            System.out.println("Invalid");
+        }
     }
 
     void listLoans(){

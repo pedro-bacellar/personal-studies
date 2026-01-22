@@ -22,8 +22,8 @@ public class BookManager {
     }
 
     Book getBooksByIndex(int choiceBook){
-        if(choiceBook <= 0){
-            System.out.println("Invalid option.");
+        if(choiceBook <= 0 || choiceBook > books.size()){
+            System.out.println("Invalid option");
         }
         else {
             choiceBook--;

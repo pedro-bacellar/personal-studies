@@ -12,6 +12,14 @@ public class Book {
         this.id = nextId++;
     }
 
+    void setAvailable(boolean available){
+        this.available = available;
+    }
+
+    boolean getAvailable(){
+        return this.available;
+    }
+
     @Override
     public String toString(){
         return "Title: " + this.title + " | Author: " + this.author + " | Available: " + available;
