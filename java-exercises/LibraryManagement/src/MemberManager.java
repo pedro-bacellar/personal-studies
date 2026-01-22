@@ -21,7 +21,7 @@ public class MemberManager {
 
     Member getMemberByIndex(int choiceMember){
         if(choiceMember <= 0 || choiceMember > members.size()){
-            System.out.println("Invalid option.");
+            System.out.println("Invalid member option.");
         }
         else {
             choiceMember--;

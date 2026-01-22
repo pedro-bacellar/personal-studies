@@ -8,15 +8,17 @@ public class LoanManager {
     }
 
     void borrowBook(Book choiceBook, Member choiceMember){
-        if(choiceBook = null || choiceMember = null){
-            System.out.println("Invalid");
+        if(choiceBook == null || choiceMember == null){
+            System.out.println("Invalid selection. Please try again.");
+            return;
         }
-        if(choiceBook.getAvailable()){
+        else if(choiceBook.getAvailable()){
             loans.add(new Loan(choiceBook, choiceMember));
             choiceBook.setAvailable(false);
+            System.out.println("Book borrowed successfully!");
         }
         else {
-            System.out.println("Invalid");
+            System.out.println("This book is not available.");
         }
     }
 
@@ -25,6 +27,7 @@ public class LoanManager {
         for(Loan loan : loans){
             i++;
             System.out.println(i + " - " + loan);
+            System.out.println();
         }
     }
 }

@@ -54,6 +54,7 @@ public class Main {
                     System.out.println("Exiting system");
                     isRunning = false;
                 }
+                default -> System.out.println("Invalid menu option. Try again.7");
             }
         }
     }
