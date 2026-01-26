@@ -1,10 +1,10 @@
 public class Pokemon {
 
-    String name;
-    String type;
-    int level;
-    int currentHp;
-    int hpMax;
+    private final String name;
+    private final String type;
+    private int level;
+    private int currentHp;
+    private int hpMax;
 
     Pokemon(String name, String type, int hpMax){
         this.name = name;
@@ -19,42 +19,48 @@ public class Pokemon {
     }
 
     void showStatus(){
-        System.out.println("Pokemon: " + this.name);
-        System.out.println("Type: " + this.type);
-        System.out.println("Level: " + this.level);
+        System.out.println("Pokemon: " + name);
+        System.out.println("Type: " + type);
+        System.out.println("Level: " + level);
         System.out.println("HP: " + currentHp + "/" + hpMax);
     }
-    void damage(int damage){
+    void takeDamage(int damage){
         if(damage <= 0){
             System.out.println("It didn't affect...");
         }
-        else if(damage > this.currentHp){
-            this.currentHp = 0;
-            System.out.println(this.name + " fainted!");
+        else if(damage > currentHp){
+            currentHp = 0;
+            System.out.println(name + " fainted!");
         }
         else{
             currentHp -= damage;
+            System.out.println(name + " lost" + damage + " points of its health!");
         }
         System.out.println("HP: " + currentHp + "/" + hpMax);
     }
-    void healing(int heal){
+    void heal(int heal){
         currentHp += heal;
-        if(this.currentHp > this.hpMax){
-            this.currentHp = this.hpMax;
+        if(currentHp > hpMax){
+            currentHp = hpMax;
         }
-        System.out.println(this.name + " had its HP restored by " + heal + " points!");
+        System.out.println(name + " had its HP restored by " + heal + " points!");
         System.out.println("HP: " + currentHp + "/" + hpMax);
     }
     boolean isAlive(){
         return currentHp > 0;
     }
-    void training(){
-        this.level++;
-        this.hpMax += 10;
-        this.currentHp += 10;
+    void train(){
+        level++;
+        hpMax += 10;
+        currentHp += 10;
 
-        if(this.currentHp > this.hpMax){
-            this.currentHp = this.hpMax;
+        if(currentHp > hpMax){
+            currentHp = hpMax;
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Pokemon: " + name + " | Type: " + type + " | HP: " + currentHp + "/" + hpMax;
     }
 }
