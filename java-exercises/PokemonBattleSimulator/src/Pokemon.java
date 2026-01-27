@@ -34,7 +34,7 @@ public class Pokemon {
         }
         else{
             currentHp -= damage;
-            System.out.println(name + " lost" + damage + " points of its health!");
+            System.out.println(name + " lost " + damage + " points of its health!");
         }
         System.out.println("HP: " + currentHp + "/" + hpMax);
     }
@@ -57,6 +57,10 @@ public class Pokemon {
         if(currentHp > hpMax){
             currentHp = hpMax;
         }
+    }
+
+    String getName(){
+        return name;
     }
 
     @Override
