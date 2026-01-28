@@ -40,12 +40,14 @@ public class Main {
                     continue;
                 }
                 case 2 -> {
-                    System.out.println(pokeAlly.getName() + " attacked!");
-                    pokeEnemy.takeDamage(random.nextInt(10, 20));
+                    pokeAlly.attack(pokeEnemy);
                 }
                 case 3 -> pokeAlly.heal(random.nextInt(7, 10));
                 case 4 -> pokeAlly.train();
-                case 5 -> isRunning = false;
+                case 5 -> {
+                    isRunning = false;
+                    return;
+                }
             }
             System.out.println();
 

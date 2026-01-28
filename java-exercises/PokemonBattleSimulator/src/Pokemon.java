@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Pokemon {
 
     private final String name;
@@ -18,6 +20,8 @@ public class Pokemon {
         }
     }
 
+    Random random = new Random();
+
     void showStatus(){
         System.out.println("Pokemon: " + name);
         System.out.println("Type: " + type);
@@ -37,6 +41,10 @@ public class Pokemon {
             System.out.println(name + " lost " + damage + " points of its health!");
         }
         System.out.println("HP: " + currentHp + "/" + hpMax);
+    }
+    void attack(Pokemon pokeEnemy){
+        System.out.println(getName() + " attacked!");
+        pokeEnemy.takeDamage(random.nextInt(10, 20));
     }
     void heal(int heal){
         currentHp += heal;
