@@ -5,10 +5,10 @@ public class Pokemon {
     private final String name;
     private final String type;
     private int level;
-    private int currentHp;
-    private int hpMax;
+    private double currentHp;
+    private double hpMax;
 
-    Pokemon(String name, String type, int hpMax){
+    Pokemon(String name, String type, double hpMax){
         this.name = name;
         this.type = type;
         this.hpMax = hpMax;
@@ -22,13 +22,7 @@ public class Pokemon {
 
     Random random = new Random();
 
-    void showStatus(){
-        System.out.println("Pokemon: " + name);
-        System.out.println("Type: " + type);
-        System.out.println("Level: " + level);
-        System.out.println("HP: " + currentHp + "/" + hpMax);
-    }
-    void takeDamage(int damage){
+    void takeDamage(double damage){
         if(damage <= 0){
             System.out.println("It didn't affect...");
         }
@@ -42,9 +36,9 @@ public class Pokemon {
         }
         System.out.println("HP: " + currentHp + "/" + hpMax);
     }
-    void attack(Pokemon pokeEnemy){
+    void attack(Pokemon pokeDefender){
         System.out.println(getName() + " attacked!");
-        pokeEnemy.takeDamage(random.nextInt(10, 20));
+        pokeDefender.takeDamage(random.nextDouble(10, 20) * calculateDamageMultiplier(pokeDefender));
     }
     void heal(int heal){
         currentHp += heal;
@@ -57,16 +51,59 @@ public class Pokemon {
     boolean isAlive(){
         return currentHp > 0;
     }
-    void train(){
-        level++;
-        hpMax += 10;
-        currentHp += 10;
 
-        if(currentHp > hpMax){
-            currentHp = hpMax;
+    double calculateDamageMultiplier(Pokemon pokeDefender){
+        if(getType().equalsIgnoreCase("Fire")){
+            if(pokeDefender.getType().equalsIgnoreCase("Grass")){
+                System.out.println("It's super effective!");
+                return 2.0;
+            }
+            else if (pokeDefender.getType().equalsIgnoreCase("Water")){
+                System.out.println("It's not very effective...");
+                return 0.5;
+            }
+            else {
+                return 1.0;
+            }
         }
+        else if(getType().equalsIgnoreCase("Water")){
+            if(pokeDefender.getType().equalsIgnoreCase("Grass")){
+                System.out.println("It's not very effective...");
+                return 0.5;
+            }
+            else if (pokeDefender.getType().equalsIgnoreCase("Fire")){
+                System.out.println("It's super effective!");
+                return 2.0;
+            }
+            else {
+                return 1.0;
+            }
+        }
+        else if(getType().equalsIgnoreCase("Grass")){
+            if (pokeDefender.getType().equalsIgnoreCase("Fire")){
+                System.out.println("It's not very effective...");
+                return 0.5;
+            }
+            else if (pokeDefender.getType().equalsIgnoreCase("Water")){
+                System.out.println("It's super effective!");
+                return 2.0;
+            }
+            else {
+                return 1.0;
+            }
+        }
+        return 1.0;
     }
 
+    void showStatus(){
+        System.out.println("Pokemon: " + name);
+        System.out.println("Type: " + type);
+        System.out.println("Level: " + level);
+        System.out.println("HP: " + currentHp + "/" + hpMax);
+    }
+    String getType(){
+        return type;
+    }
     String getName(){
         return name;
     }

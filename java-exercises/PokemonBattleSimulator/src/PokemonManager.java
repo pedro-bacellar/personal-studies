@@ -5,7 +5,7 @@ public class PokemonManager {
     ArrayList<Pokemon> pokemons = new ArrayList<>();
 
     PokemonManager() {
-        pokemons.add(new Pokemon("Bulbasaur", "Grass/Poison", 45));
+        pokemons.add(new Pokemon("Bulbasaur", "Grass", 45));
         pokemons.add(new Pokemon("Charmander", "Fire", 39));
         pokemons.add(new Pokemon("Squirtle", "Water", 44));
     }

@@ -2,37 +2,28 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
+    static PokemonManager pokeManager = new PokemonManager();
+
     public static void main(String[] args) {
 
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        PokemonManager pokeManager = new PokemonManager();
 
         Pokemon pokeAlly;
         Pokemon pokeEnemy = pokeManager.getPokemonByIndex(2);
 
-        int choicePokemon;
-        int choiceMenu;
         boolean isRunning = true;
 
         System.out.println("--- POKEMON BATTLE SIMULATOR ---");
-        pokeManager.listPokemon();
-        System.out.println();
-        System.out.print("Choose your pokemon: ");
-        choicePokemon = scanner.nextInt();
+        int choicePoke = getChoicePoke(scanner);
 
-        pokeAlly = pokeManager.getPokemonByIndex(choicePokemon);
+        pokeAlly = pokeManager.getPokemonByIndex(choicePoke);
 
         while(isRunning) {
+
             System.out.println();
-            System.out.println("--- MENU ---");
-            System.out.println("1 - Status");
-            System.out.println("2 - Attack");
-            System.out.println("3 - Heal");
-            System.out.println("4 - Train");
-            System.out.println("5 - Leave");
-            System.out.print("Action: ");
-            choiceMenu = scanner.nextInt();
+            int choiceMenu = getChoiceMenu(scanner);
 
             switch (choiceMenu) {
                 case 1 -> {
@@ -43,16 +34,36 @@ public class Main {
                     pokeAlly.attack(pokeEnemy);
                 }
                 case 3 -> pokeAlly.heal(random.nextInt(7, 10));
-                case 4 -> pokeAlly.train();
-                case 5 -> {
-                    isRunning = false;
-                    return;
-                }
             }
             System.out.println();
 
             System.out.println(pokeEnemy.getName() + " attacked!");
             pokeAlly.takeDamage(random.nextInt(10, 20));
+
+            if (!pokeAlly.isAlive()){
+                System.out.println("Game over!");
+                isRunning = false;
+            }
+            else if(!pokeEnemy.isAlive()){
+                System.out.println("You win!");
+                isRunning = false;
+            }
         }
+    }
+
+    static int getChoicePoke(Scanner scanner){
+        pokeManager.listPokemon();
+        System.out.println();
+        System.out.print("Choose your pokemon: ");
+        return scanner.nextInt();
+    }
+
+    static int getChoiceMenu(Scanner scanner){
+        System.out.println("--- MENU ---");
+        System.out.println("1 - Status");
+        System.out.println("2 - Attack");
+        System.out.println("3 - Heal");
+        System.out.print("Action: ");
+        return scanner.nextInt();
     }
 }
