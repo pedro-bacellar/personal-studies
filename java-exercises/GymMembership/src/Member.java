@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Member {
@@ -13,6 +14,8 @@ public class Member {
     private static int nextId = 1;
 
     private ArrayList<LocalDate> checkIns = new ArrayList<>();
+
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     Member(String name, String email, PlanType type){
         this.name = name;
@@ -42,15 +45,25 @@ public class Member {
     public int getId(){
         return id;
     }
+    public int getTotalCheckIns(){
+        return checkIns.size();
+    }
+    public ArrayList<LocalDate> getCheckIns(){
+        return checkIns;
+    }
 
-
+    public boolean addCheckIn(){
+        if(getExpiryDate().isAfter(LocalDate.now())){
+            checkIns.add(LocalDate.now());
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     void setStatus(boolean status){
         this.status = status;
     }
-
-
-
-
 
     @Override
     public String toString(){
@@ -58,7 +71,7 @@ public class Member {
                 "\nName: " + this.name +
                 "\nEmail: " + this.email +
                 "\nPlan: " + this.type +
-                "\nStart: " + this.startDate +
-                "\nExpiry: " + this.expiryDate;
+                "\nStart: " + this.startDate.format(formatter) +
+                "\nExpiry: " + this.expiryDate.format(formatter);
     }
 }

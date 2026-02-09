@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
 
-        GymManager gymManager = new GymManager();
+        GymManager manager = new GymManager();
 
-        gymManager.addMember();
+        manager.run();
     }
 }
