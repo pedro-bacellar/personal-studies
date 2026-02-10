@@ -1,5 +1,7 @@
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,11 +9,10 @@ import java.util.Scanner;
 public class GymManager {
 
     Scanner scanner = new Scanner(System.in);
-
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     HashMap<Integer, Member> members = new HashMap<>();
-    String filePath = "gym_members.txt";
+    File filePath = new File("gym_members.txt");
 
     public void addMember(){
 
@@ -21,14 +22,83 @@ public class GymManager {
 
         Member member = new Member(name, email, type);
         members.put(member.getId(), member);
-
-        System.out.println(member);
     }
     public void removeMember(int id){
         Member member = members.get(id);
         members.remove(id);
 
         System.out.println(member.getName() + " has been removed!");
+    }
+
+    public void loadMembers(){
+        if(!filePath.exists()){
+            return;
+        }
+        else {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+                String line = "";
+                String[] parts;
+                reader.readLine();
+                while ((line = reader.readLine()) != null) {
+                    parts = line.split("\\,");
+
+                    int id = Integer.parseInt(parts[0]);
+                    String name = parts[1];
+                    String email = parts[2];
+                    PlanType type = PlanType.valueOf(parts[3]);
+                    LocalDate startDate = LocalDate.parse(parts[4]);
+                    LocalDate expiryDate = LocalDate.parse(parts[5]);
+                    String checkInsStr = "";
+
+                    if(parts.length > 6){
+                        checkInsStr = parts[6];
+                    }
+                    ArrayList<LocalDate> checkIns = new ArrayList<>();
+
+                    if (!checkInsStr.isEmpty()){
+                        String[] checkInParts;
+                        checkInParts = checkInsStr.split(";");
+                        for(String part : checkInParts){
+                            LocalDate datePart = LocalDate.parse(part);
+                            checkIns.add(datePart);
+                        }
+                    }
+
+                    Member member = new Member(id, name, email, type, startDate, expiryDate, checkIns);
+                    members.put(id, member);
+                }
+                if(!members.isEmpty()){
+                    int greaterId = 0;
+                    for(Member member : members.values()){
+                        if (member.getId() > greaterId){
+                            greaterId = member.getId();
+                        }
+                    }
+                    Member.setNextId(greaterId + 1);
+                }
+
+            } catch (FileNotFoundException e) {
+                System.out.println("Could not locate file");
+            } catch (IOException e) {
+                System.out.println("Something went wrong");
+            }
+        }
+    }
+    public void saveToFile(){
+        try (FileWriter writer = new FileWriter(filePath)){
+            writer.write("id,name,email,plan,startDate,expiryDate,checkIns" + "\n");
+
+            for(Member member : members.values()){
+                writer.write(member.toFileFormat() + "\n");
+            }
+            System.out.println("✓ Data saved successfully!");
+        }
+        catch (FileNotFoundException e){
+            System.out.println("Could not locate file: " + e.getMessage());
+        }
+        catch (IOException e){
+            System.out.println("Something went wrong");
+        }
     }
 
     public void checkIn(int id){
@@ -180,13 +250,14 @@ public class GymManager {
         System.out.println("4. Check-in Member");
         System.out.println("5. Show Check-ins");
         System.out.println("6. Remove Member");
-        System.out.println("7. Exit");
+        System.out.println("7. Save and Exit");
         System.out.println();
         System.out.print("Enter: ");
     }
 
     public void run(){
         boolean isRunning = true;
+        loadMembers();
 
         while (isRunning){
             showMenu();
@@ -200,7 +271,10 @@ public class GymManager {
                 case 4 -> checkIn(getIdByPrompt());
                 case 5 -> showCheckIns(getIdByPrompt());
                 case 6 -> removeMember(getIdByPrompt());
-                case 7 -> isRunning = false;
+                case 7 -> {
+                    saveToFile();
+                    isRunning = false;
+                }
             }
             System.out.println();
         }

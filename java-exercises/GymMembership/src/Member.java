@@ -26,6 +26,16 @@ public class Member {
         this.expiryDate = startDate.plusMonths(type.getNumberOfMonths());
         this.status = true;
     }
+    Member(int id, String name, String email, PlanType type, LocalDate startDate, LocalDate expiryDate, ArrayList<LocalDate> checkIns){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.type = type;
+        this.startDate = startDate;
+        this.expiryDate = expiryDate;
+        this.checkIns = checkIns;
+        this.status = true;
+    }
 
     public String getName(){
         return name;
@@ -61,8 +71,22 @@ public class Member {
             return false;
         }
     }
-    void setStatus(boolean status){
+    public void setStatus(boolean status){
         this.status = status;
+    }
+    public static void setNextId(int id){
+        nextId = id;
+    }
+
+    public String toFileFormat(){
+        String checkInsStr = "";
+        for(LocalDate checkIn : checkIns){
+            checkInsStr += checkIn + ";";
+        }
+        if (!checkInsStr.isEmpty()){
+            checkInsStr = checkInsStr.substring(0, checkInsStr.length() - 1);
+        }
+        return id + "," + name + "," + email + "," + type + "," + startDate + "," + expiryDate + "," + checkInsStr;
     }
 
     @Override
