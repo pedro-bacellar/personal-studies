@@ -1,2 +1,0 @@
-id,name,email,plan,startDate,expiryDate,checkIns
-2,pedro,pedro@gmail.com,ANNUAL,2026-02-10,2027-02-10,2026-02-10;2026-02-10;2026-02-10
